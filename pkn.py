@@ -1,3 +1,4 @@
+import random
 scissors = '''
 
 
@@ -35,7 +36,7 @@ vs = '''
  ,---.;  ; |;  |  |--`
 /___/ \  | ||  :  ;_
 \   ;  \ ' | \  \    `.
- \   \  \: |  `----.   \
+ \   \  \: |  `----.   \\
   ;   \  ' .  __ \  \  |
    \   \   ' /  /`--'  /
     \   `  ;'--'.     /
@@ -108,7 +109,82 @@ rock = '''                      ▓▓████████████
                       ████████████████████▓▓██████████████████
                           ████████████████████████████████
                                         ████████████████                '''
+
+lose = ''' 
+        ______                                           _____                                                                               _____                     
+  _____|\     \ ___________      _____  ______      _____\    \        _____       ___________          _____       _____               _____\    \            _____   
+ /     / |     |\          \    /    / /     /|    /    / |    |  _____\    \_     \          \       /      |_    |\    \             /    / |    |      _____\    \  
+|      |/     /| \    /\    \  |     |/     / |   /    /  /___/| /     /|     |     \    /\    \     /         \    \\\    \           /    /  /___/|     /    / \    | 
+|      |\____/ |  |   \_\    | |\____\\    / /   |    |__ |___|//     / /____/|      |   \_\    |   |     /\    \    \\\    \         |    |__ |___|/    |    |  /___/| 
+|\     \    | /   |      ___/   \|___|/   / /    |       \     |     | |_____|/      |      ___/    |    |  |    \    \|    | ______ |       \       ____\    \ |   || 
+| \     \___|/    |      \  ____   /     /_/____ |     __/ __  |     | |_________    |      \  ____ |     \/      \    |    |/      \|     __/ __   /    /\    \|___|/ 
+|  \     \       /     /\ \/    \ /     /\      ||\    \  /  \ |\     \|\        \  /     /\ \/    \|\      /\     \   /            ||\    \  /  \ |    |/ \    \      
+ \  \_____\     /_____/ |\______|/_____/ /_____/|| \____\/    || \_____\|    |\__/|/_____/ |\______|| \_____\ \_____\ /_____/\_____/|| \____\/    ||\____\ /____/|     
+  \ |     |     |     | | |     ||    |/|     | || |    |____/|| |     /____/| | |||     | | |     || |     | |     ||      | |    ||| |    |____/|| |   ||    | |     
+   \|_____|     |_____|/ \|_____||____| |_____|/  \|____|   | | \|_____|     |\|_|/|_____|/ \|_____| \|_____|\|_____||______|/|____|/ \|____|   | | \|___||____|/      
+                                                        |___|/         |____/                                                               |___|/                     
+''' 
 while (True):
+    score = 0
     print("Witaj w grze Kamień, Papier, Nożyce, wybierz czym chcesz zagrać ")
-    choice = input("")
-    if ()
+    choice = input("1. Kamień, 2. Papier, 3. Nożyce: ")
+    def rpsPlayer(choice):
+        if choice == "1":
+            print(rock, end="")
+        elif choice == "2":
+            print(paper, end="")
+        elif choice == "3":
+            print(scissors, end="")
+        else:
+            print("Nieprawidłowy wybór")
+      
+    def rpsComputer():
+        computer = random.randint(1,3)
+        if computer == 1:
+            print(rock, end="")
+        elif computer == 2:
+            print(paper, end="")
+        elif computer == 3:
+            print(scissors, end="")
+        return computer
+
+
+    
+    computer_choice = random.randint(1, 3)
+    if choice == computer_choice:
+        
+        score = 0
+    elif choice == "1" and computer_choice == 3:
+        print("Wygrałeś")
+        score += 1
+    elif choice == "2" and computer_choice == 1:
+        print("Wygrałeś")
+        score += 1
+    elif choice == "3" and computer_choice == 2:
+        print("Wygrałeś")
+        score += 1
+    
+
+    else:
+        print(lose)
+        score -= 1
+    #print player choice, vs and computer choice in the console in the same line
+    # rpsPlayer(choice)
+    # print(vs, end="")
+    # rpsComputer()
+
+    #print player choice, vs and computer choice in the console in the same line
+
+    print("Twój wynik to: ", score, end=" ")
+    print("Wynik komputera to: ", computer_choice)
+    
+
+    print("Czy chcesz zagrać ponownie? (T/N)")
+    again = input()
+    if again == "T":
+        continue
+    else:
+        break
+    
+
+    
